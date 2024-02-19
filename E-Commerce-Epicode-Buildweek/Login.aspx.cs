@@ -29,7 +29,7 @@ namespace E_Commerce_Epicode_Buildweek
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                string query = "SELECT Password FROM Utenti WHERE Email=@Email";
+                string query = "SELECT IdUtente,Email, Password, TipoUtente FROM Utenti WHERE Email=@Email";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -39,10 +39,25 @@ namespace E_Commerce_Epicode_Buildweek
                     {
                         if(reader.Read())
                         {
+                            string userId = reader["IdUtente"].ToString();
+                            string userEmail = reader["Email"].ToString();
                             string passwordHash = reader["Password"].ToString();
+                            string tipoUtente = reader["TipoUtente"].ToString();
                             if(BCrypt.Net.BCrypt.Verify(password, passwordHash))
                             {
-                                Response.Redirect("HomePage.aspx");
+
+                                Session["UserId"] = userId;
+                                Session["Email"] = userEmail;
+                                Session["IsAdmin"] = tipoUtente.Equals("admin", StringComparison.OrdinalIgnoreCase);
+
+                                if ((bool)Session["IsAdmin"])
+                                {
+                                    Response.Redirect("Amministrazione.aspx");
+                                }
+                                else
+                                {
+                                    Response.Redirect("HomePage.aspx");
+                                }
                             } else
                             {
                                 ClientScript.RegisterStartupScript(this.GetType(), "loginError", "alert('Email o password errata.')", true);

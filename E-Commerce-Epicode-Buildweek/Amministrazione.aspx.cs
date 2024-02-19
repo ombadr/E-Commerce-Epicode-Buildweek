@@ -11,7 +11,13 @@ namespace E_Commerce_Epicode_Buildweek
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                if (Session["IsAdmin"] == null || !(bool)Session["IsAdmin"])
+                {
+                    Response.Redirect("HomePage.aspx");
+                }
+            }
         }
     }
 }
