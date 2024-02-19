@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace E_Commerce_Epicode_Buildweek
+namespace E_Commerce_Epicode_Buildweek.Templates
 {
-    public partial class Template : System.Web.UI.MasterPage
+    public partial class LoginRegistrazioneTemplate : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
