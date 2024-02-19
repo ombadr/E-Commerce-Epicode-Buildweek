@@ -18,7 +18,8 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarSupportedContent">
-                    <button class="btn btn-success me-5" type="submit">Carrello</button>
+                    <a href="Carrello.aspx" class="btn btn-success me-3">Carrello</a>
+                    <a href="Login.aspx" class="btn btn-outline-success me-5">Login</a>
                 </div>
             </div>
         </nav>
