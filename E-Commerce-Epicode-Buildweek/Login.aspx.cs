@@ -53,10 +53,12 @@ namespace E_Commerce_Epicode_Buildweek
                                 if ((bool)Session["IsAdmin"])
                                 {
                                     Response.Redirect("Amministrazione.aspx");
+                                    
                                 }
                                 else
                                 {
                                     Response.Redirect("HomePage.aspx");
+                                    System.Diagnostics.Debug.WriteLine("Hello");
                                 }
                             } else
                             {

@@ -30,7 +30,7 @@ namespace E_Commerce_Epicode_Buildweek
 
             string connectionString = ConfigurationManager.ConnectionStrings["ConnessioneDBLocale"].ConnectionString;
 
-            string query = "INSERT INTO Utenti (Nome, Cognome, Email, Password, TipoUtente) VALUES (@Nome, @Cognome, @Email, @Password, 'user')";
+            string query = "INSERT INTO Utenti (Nome, Cognome, Email, Password, TipoUtente) VALUES (@Nome, @Cognome, @Email, @Password, 'user'); SELECT SCOPE_IDENTITY();";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -39,13 +39,17 @@ namespace E_Commerce_Epicode_Buildweek
                     cmd.Parameters.AddWithValue("@Nome", nome);
                     cmd.Parameters.AddWithValue("@Cognome", cognome);
                     cmd.Parameters.AddWithValue ("@Email", email);
-                    // cmd.Parameters.AddWithValue("@Password", password);
                     cmd.Parameters.AddWithValue("@Password", hashedPassword);
 
                     try
                     {
                         conn.Open();
-                        cmd.ExecuteNonQuery();
+                        object result = cmd.ExecuteScalar();
+                        if (result != null)
+                        {
+                            int userId = Convert.ToInt32(result);
+                            Session["UserId"] = userId;
+                        }
                         Response.Redirect("HomePage.aspx", false);
                     }
                     catch (Exception ex) {
