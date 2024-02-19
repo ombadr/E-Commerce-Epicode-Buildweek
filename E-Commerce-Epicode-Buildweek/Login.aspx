@@ -4,11 +4,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <div class="mb-3">
     <label for="indirzzoEmail" class="form-label">E-mail</label>
-    <input type="email" class="form-control" id="indirizzoEmail">
+    <input type="email" class="form-control" id="indirizzoEmail" name="indirizzoEmail">
   </div>
   <div class="mb-3">
     <label for="passwordUtente" class="form-label">Password</label>
-    <input type="password" class="form-control" id="passwordUtente">
+    <input type="password" class="form-control" id="passwordUtente" name="passwordUtente">
   </div>
     <div class="mb-2 d-flex">
         <p class="me-2">Non hai un'account?</p>

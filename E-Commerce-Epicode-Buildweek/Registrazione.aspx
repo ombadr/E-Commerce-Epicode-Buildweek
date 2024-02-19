@@ -5,19 +5,19 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row mb-3">
         <div class="col">
-            <input type="text" class="form-control" placeholder="Nome" aria-label="Nome">
+            <input type="text" class="form-control" placeholder="Nome" aria-label="Nome" name="nomeUtente">
         </div>
         <div class="col">
-            <input type="text" class="form-control" placeholder="Cognome" aria-label="Cognome">
+            <input type="text" class="form-control" placeholder="Cognome" aria-label="Cognome" name="cognomeUtente">
         </div>
     </div>
     <div class="mb-3">
-        <label for="indirzzoEmail" class="form-label">E-mail</label>
-        <input type="email" class="form-control" id="indirizzoEmail">
+        <label for="indirizzoEmail" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="indirizzoEmail" name="indirizzoEmail">
     </div>
     <div class="mb-3">
         <label for="passwordUtente" class="form-label">Password</label>
-        <input type="password" class="form-control" id="passwordUtente">
+        <input type="password" class="form-control" id="passwordUtente" name="passwordUtente">
     </div>
     <div class="mb-2 d-flex">
         <p class="me-2">Hai già un'account?</p>
