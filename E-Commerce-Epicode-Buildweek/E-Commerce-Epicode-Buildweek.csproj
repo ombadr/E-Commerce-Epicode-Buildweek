@@ -85,6 +85,7 @@
   <ItemGroup>
     <Content Include="Amministrazione.aspx" />
     <Content Include="Assets\Images\main.png" />
+    <Content Include="BackOfficeDetails.aspx" />
     <Content Include="Carrello.aspx" />
     <Content Include="Dettaglio.aspx" />
     <Content Include="Global.asax" />
@@ -97,10 +98,16 @@
   <ItemGroup>
     <Compile Include="Amministrazione.aspx.cs">
       <DependentUpon>Amministrazione.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Amministrazione.aspx.designer.cs">
       <DependentUpon>Amministrazione.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BackOfficeDetails.aspx.cs">
+      <DependentUpon>BackOfficeDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BackOfficeDetails.aspx.designer.cs">
+      <DependentUpon>BackOfficeDetails.aspx</DependentUpon>
     </Compile>
     <Compile Include="Carrello.aspx.cs">
       <DependentUpon>Carrello.aspx</DependentUpon>
