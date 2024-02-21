@@ -12,7 +12,7 @@ namespace E_Commerce_Epicode_Buildweek
     public partial class Dettaglio : System.Web.UI.Page
     {
         private string ProductId;
-        private static string connectionString = ConfigurationManager.ConnectionStrings["ConnessioneDBLocale"].ToString();
+        private static string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Request.QueryString["product"] == null)
@@ -27,7 +27,7 @@ namespace E_Commerce_Epicode_Buildweek
                     using (SqlConnection conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                        SqlCommand cmd = new SqlCommand($"SELECT * FROM Prodotti WHERE IdProdotto={ProductId}", conn);
+                        SqlCommand cmd = new SqlCommand($"SELECT * FROM Prodotto WHERE IdProdotto={ProductId}", conn);
                         SqlDataReader dataReader = cmd.ExecuteReader();
                         if (dataReader.HasRows)
                         {
@@ -35,6 +35,7 @@ namespace E_Commerce_Epicode_Buildweek
                             ttlProdotto.InnerText = dataReader["Nome"].ToString();
                             img.Src = dataReader["Immagine"].ToString();
                             txtDescrizione.InnerText = dataReader["Descrizione"].ToString();
+                            txtDettagli.InnerText = dataReader["Dettagli"].ToString();
                             txtPrezzo.InnerText = dataReader["Prezzo"].ToString() + "€";
                         }
                     }

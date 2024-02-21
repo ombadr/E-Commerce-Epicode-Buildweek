@@ -19,7 +19,7 @@ namespace E_Commerce_Epicode_Buildweek
         public string Immagine { get; set; }
 
 
-        public Articolo(int id, string nome, string descrizione, string dettagli, decimal prezzo, string immagine)
+        public Articolo(int id, string descrizione, string dettagli, decimal prezzo, string nome, string immagine)
         {
             Id = id;
             Descrizione = descrizione;
@@ -34,7 +34,7 @@ namespace E_Commerce_Epicode_Buildweek
     public partial class Amministrazione : System.Web.UI.Page
     {
 
-        static string connectionString = ConfigurationManager.ConnectionStrings["ConnessioneDBLocale"].ToString();
+        static string connectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ToString();
         SqlConnection conn = new SqlConnection(connectionString);
         public static List<Articolo> allValues = new List<Articolo>();
         protected void Page_Load(object sender, EventArgs e)
@@ -49,11 +49,11 @@ namespace E_Commerce_Epicode_Buildweek
 
                 allValues.Clear();
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Prodotti", conn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Prodotto", conn);
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Articolo articolo = new Articolo(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetDecimal(4), reader.GetString(5));
+                    Articolo articolo = new Articolo(reader.GetInt32(0), reader.GetString(1), reader.GetString(2), reader.GetDecimal(3), reader.GetString(4), reader.GetString(5));
                     allValues.Add(articolo);
                 }
             }

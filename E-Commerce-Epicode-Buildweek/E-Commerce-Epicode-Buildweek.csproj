@@ -84,12 +84,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Amministrazione.aspx" />
+    <Content Include="Amministrazione.css" />
     <Content Include="Assets\Images\main.png" />
     <Content Include="BackOfficeDetails.aspx" />
+    <Content Include="BackOfficeDetails.css" />
     <Content Include="Carrello.aspx" />
     <Content Include="Dettaglio.aspx" />
+    <Content Include="Dettaglio.css" />
     <Content Include="Global.asax" />
     <Content Include="HomePage.aspx" />
+    <Content Include="HomePage.css" />
     <Content Include="Login.aspx" />
     <Content Include="NotFound.aspx" />
     <Content Include="Registrazione.aspx" />
